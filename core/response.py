@@ -5,8 +5,8 @@ class Response:
         request.end_headers()
         request.wfile.write(message.encode('utf-8'))
 
-    def render_template(self, request, template_name, **kwargs):
-        content = request.render_template(template_name, posts=kwargs)
+    def render_template(self, request, template_name,data):
+        content = request.render_template(template_name, **data)
         self.response_http(request,content)
 
 
