@@ -6,9 +6,6 @@ class Response:
         request.send_response(status_code)
         request.send_header('Content-type', content_type)
         request.end_headers()
-        # if os.path.isfile(message):
-        #     with open(message, 'rb') as file:
-        #         message = file.read()
         if not isinstance(message, bytes):
             message = message.encode('utf-8')
         request.wfile.write(message)
